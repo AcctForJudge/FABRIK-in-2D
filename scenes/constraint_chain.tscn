@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://c05i0qhvu62ay"]
+
+[ext_resource type="Script" uid="uid://cl4de026fcw25" path="res://scripts/camera_2d.gd" id="1_kb8ru"]
+[ext_resource type="Script" uid="uid://8jyb7h8shiur" path="res://scripts/chain.gd" id="2_ws8ro"]
+[ext_resource type="PackedScene" uid="uid://5xnw68iv35fn" path="res://scenes/points.tscn" id="3_8x6o3"]
+
+[node name="Constraint Chain" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -13757.0
+offset_top = -8567.0
+offset_right = 5142.0
+offset_bottom = 3342.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(582, 344)
+zoom = Vector2(0.1, 0.1)
+script = ExtResource("1_kb8ru")
+min_zoom = Vector2(0.05, 0.05)
+
+[node name="Chain" type="Node2D" parent="."]
+position = Vector2(-3, 9)
+script = ExtResource("2_ws8ro")
+show_circles = false
+radius = Array[int]([200, 250, 400, 400, 460, 380, 300, 250, 200, 170, 150, 100])
+max_constraint = 20
+
+[node name="Point" parent="Chain" instance=ExtResource("3_8x6o3")]
+position = Vector2(79, 63)
+
+[node name="Point2" parent="Chain" instance=ExtResource("3_8x6o3")]
+position = Vector2(136, 247)
+
+[node name="Point3" parent="Chain" instance=ExtResource("3_8x6o3")]
+position = Vector2(272, 439)
+
+[node name="Point4" parent="Chain" instance=ExtResource("3_8x6o3")]
+position = Vector2(534, 537)
+
+[node name="Point5" parent="Chain" instance=ExtResource("3_8x6o3")]
+position = Vector2(831, 504)
+
+[node name="Connectors" type="Node2D" parent="."]

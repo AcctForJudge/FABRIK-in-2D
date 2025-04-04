@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqvdokn0w7wj"]
+
+[ext_resource type="Script" uid="uid://bulkpb7t4kotc" path="res://scripts/fabrik_chain.gd" id="1_spwdo"]
+[ext_resource type="PackedScene" uid="uid://5xnw68iv35fn" path="res://scenes/points.tscn" id="2_g77xq"]
+[ext_resource type="Script" uid="uid://hv37h5rj66kk" path="res://scripts/target.gd" id="3_spwdo"]
+[ext_resource type="Script" uid="uid://cl4de026fcw25" path="res://scripts/camera_2d.gd" id="5_cqm8i"]
+
+[node name="link" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -12324.0
+offset_top = -6515.0
+offset_right = 6575.0
+offset_bottom = 5394.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Connectors" type="Node2D" parent="."]
+
+[node name="constant FABRIK Chain" type="Node2D" parent="."]
+position = Vector2(-3, 9)
+script = ExtResource("1_spwdo")
+chain_length = 200
+tolerance = 0
+
+[node name="Point" parent="constant FABRIK Chain" instance=ExtResource("2_g77xq")]
+position = Vector2(79, 63)
+
+[node name="Point2" parent="constant FABRIK Chain" instance=ExtResource("2_g77xq")]
+position = Vector2(136, 247)
+
+[node name="Point3" parent="constant FABRIK Chain" instance=ExtResource("2_g77xq")]
+position = Vector2(272, 439)
+
+[node name="Point4" parent="constant FABRIK Chain" instance=ExtResource("2_g77xq")]
+position = Vector2(534, 537)
+
+[node name="Point5" parent="constant FABRIK Chain" instance=ExtResource("2_g77xq")]
+position = Vector2(831, 504)
+
+[node name="Target" parent="constant FABRIK Chain" instance=ExtResource("2_g77xq")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(1234, 112)
+script = ExtResource("3_spwdo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(582, 344)
+zoom = Vector2(0.2, 0.2)
+script = ExtResource("5_cqm8i")
+min_zoom = Vector2(0.05, 0.05)
